@@ -1,3 +1,9 @@
+// IMPORTS
+
+@import "../../scss/variables.scss";
+
+// STYLING
+
 header {
   position: relative;
   display: flex;
@@ -7,7 +13,7 @@ header {
   border-bottom: 1px solid black;
 
   div {
-    height: 60px;
+    height: 65px;
     img {
       height: 100%;
     }
@@ -33,7 +39,7 @@ header {
 
     .hamburger:hover,
     .bag:hover {
-      color: #3737e6;
+      color: $blue;
     }
 
     ul {
@@ -43,14 +49,14 @@ header {
       margin: 0;
       li {
         a {
-          color: black;
+          color: $black;
           text-decoration: none;
           text-transform: uppercase;
           font-family: Arial, Helvetica, sans-serif;
         }
 
         a:hover {
-          color: #3737e6;
+          color: $blue;
         }
       }
     }
@@ -59,21 +65,22 @@ header {
       display: flex;
       flex-direction: column;
       position: absolute;
-      gap: 15px;
+      gap: 20px;
       top: 74px;
       right: 0;
       padding: 1em;
-      border: 1px solid black;
+      background-color: $white;
+      border: 1px solid $black;
     }
 
     .showMenu:hover {
-      border: 1px solid #3737e6;
+      border: 1px solid $blue;
     }
   }
 }
 
 header:hover {
-  border-bottom: 1px solid #3737e6;
+  border-bottom: 1px solid $blue;
 }
 
 @media screen and (min-width: 768px) {
