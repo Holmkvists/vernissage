@@ -1,0 +1,74 @@
+// IMPORTS
+
+@import "../../../../scss/variables.scss";
+
+// STYLING
+
+.hero-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .hero-text {
+    margin-top: 50px;
+    text-transform: uppercase;
+    position: absolute;
+    top: 0;
+    z-index: 1;
+
+    p {
+      font-weight: 600;
+      font-size: 30pt;
+    }
+
+    h1 {
+      color: $blue;
+      font-size: 40pt;
+    }
+
+    p,
+    h1 {
+      margin: 0.25em;
+    }
+  }
+
+  .hero-image {
+    height: 1000px;
+    width: 100%;
+    margin-top: 200px;
+    background-image: url(../../../../../public/assets/hero/hero-mobile.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    img {
+      width: 150px;
+      top: 55px;
+      left: 27%;
+    }
+  }
+}
+
+@media screen and (min-width: 890px) {
+  .hero-container {
+    .hero-text {
+      left: 15%;
+      top: 5%;
+
+      p {
+        font-size: 50pt;
+      }
+
+      h1 {
+        font-size: 60pt;
+      }
+    }
+
+    .hero-image {
+      height: calc(100vh - 75px);
+      margin-top: 0;
+      background-image: url(../../../../../public/assets/hero/hero-desktop.png);
+    }
+  }
+}

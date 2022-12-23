@@ -43,14 +43,13 @@ header {
     }
 
     ul {
-      list-style: none;
       display: none;
       padding: 0;
       margin: 0;
+
       li {
         a {
           color: $black;
-          text-decoration: none;
           text-transform: uppercase;
           font-family: Arial, Helvetica, sans-serif;
         }
