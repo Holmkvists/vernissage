@@ -1,0 +1,39 @@
+// IMPORTS
+
+@import "../../scss/variables.scss";
+
+// STYLING
+
+#exhibitions-container {
+  margin: 75px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+
+  .art {
+    width: 75%;
+    // border: 1px solid $black;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  .art:hover {
+    border: 1px solid $blue;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  #exhibitions-container {
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 80%;
+    flex-wrap: wrap;
+
+    .art {
+      width: 45%;
+    }
+  }
+}

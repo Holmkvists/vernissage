@@ -6,6 +6,11 @@
 
 .about-container {
   margin-top: 50px;
-  height: 400px;
+  height: 200px;
   background-color: $blue;
+
+  p {
+    font-size: 20pt;
+    color: white;
+  }
 }

@@ -4,7 +4,7 @@ export const Hero = () => {
       <div className="hero-text">
         <p>Discover</p>
         <p>The new</p>
-        <a href="#">
+        <a href="/exhibition">
           {/* skrivstil? */}
           <h1>Exhibition</h1>
         </a>

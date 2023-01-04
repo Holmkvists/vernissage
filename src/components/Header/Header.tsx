@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 export const Header = () => {
   const [isToggled, setIsToggled] = useState(false);
@@ -19,10 +20,10 @@ export const Header = () => {
         <i onClick={toggleMenu} className="bi bi-list hamburger"></i>
         <ul className={`${isToggled ? "showMenu" : ""}`}>
           <li>
-            <a href="#">Exhibition</a>
+            <a href="/exhibition">Exhibition</a>
           </li>
           <li>
-            <a href="#">Shop</a>
+            <a href="/shop">Shop</a>
           </li>
           <li>
             <a href="#">About</a>
