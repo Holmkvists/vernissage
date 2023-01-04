@@ -1,7 +1,7 @@
 export const art = [
   {
-    name: "Pink eyes - Color",
-    alternateName: "Normal eyes - Black",
+    name: "Pink eyes",
+    alternateName: "Normal eyes",
     imgSrc: "/assets/art/pink-eye-color.png",
     alternateImgSrc: "/assets/art/normal-eyes-black.png",
     description: "Test",

@@ -21,14 +21,24 @@ export const ArtSingle = () => {
 
   return (
     <div id="art-container">
-      <h3>{artwork?.name}</h3>
-      <div id="image-slider">
-        <div>
-          <img src={artwork?.alternateImgSrc} alt={artwork?.alternateName} />
+      <h2>
+        {artwork?.name}{" "}
+        {artwork?.alternateName != undefined
+          ? `// ${artwork.alternateName}`
+          : ""}
+      </h2>
+      {artwork?.alternateImgSrc != undefined ? (
+        <div id="image-slider">
+          <div>
+            <img src={artwork?.alternateImgSrc} alt={artwork?.alternateName} />
+          </div>
+          <img src={artwork?.imgSrc} alt={artwork?.name} />
         </div>
-        <img src={artwork?.imgSrc} alt={artwork?.name} />
-      </div>
-      <p>{artwork?.description}</p>
+      ) : (
+        <div id="image-container">
+          <img src={artwork?.imgSrc} alt={artwork?.name} />
+        </div>
+      )}
     </div>
   );
 };

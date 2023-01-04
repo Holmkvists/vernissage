@@ -6,17 +6,23 @@
 
 #art-container {
   width: 80%;
-  margin: auto;
+  margin: 50px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  h2 {
+    text-transform: uppercase;
+  }
 
   #image-slider {
-    margin-left: 3rem;
     position: relative;
     display: inline-block;
     line-height: 0;
 
     img {
       user-select: none;
-      max-width: 400px;
+      width: 250px;
     }
 
     div {
@@ -41,6 +47,32 @@
       background: linear-gradient(-45deg, black 50%, transparent 0);
       -webkit-filter: drop-shadow(0 0 2px black);
       filter: drop-shadow(0 0 2px black);
+    }
+
+    ::-webkit-resizer {
+      content: "DRAG ME";
+    }
+  }
+
+  #image-container {
+    img {
+      width: 250px;
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  #art-container {
+    #image-slider {
+      img {
+        width: 325px;
+      }
+    }
+
+    #image-container {
+      img {
+        width: 325px;
+      }
     }
   }
 }
