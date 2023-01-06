@@ -4,11 +4,14 @@ export const Hero = () => {
       <div className="hero-text">
         <p>Discover</p>
         <p>The new</p>
-        <a href="/exhibition">
-          {/* skrivstil? */}
-          <h1>Exhibition</h1>
-        </a>
+        <h1>
+          <a href="/exhibition">
+            {/* skrivstil? */}
+            Exhibition
+          </a>
+        </h1>
       </div>
+      <div className="hero-frame"></div>
       <div className="hero-image">
         {/* <img src="/assets/art/pink-eye-color.png" alt="Test" /> */}
       </div>
