@@ -20,25 +20,33 @@ export const ArtSingle = () => {
   // );
 
   return (
-    <div id="art-container">
-      <h2>
-        {artwork?.name}{" "}
-        {artwork?.alternateName != undefined
-          ? `// ${artwork.alternateName}`
-          : ""}
-      </h2>
-      {artwork?.alternateImgSrc != undefined ? (
-        <div id="image-slider">
-          <div>
-            <img src={artwork?.alternateImgSrc} alt={artwork?.alternateName} />
+    <>
+      <a href="/exhibition" className="back-link">
+        <i className="bi bi-arrow-left"></i>
+      </a>
+      <div id="art-container">
+        <h2>
+          {artwork?.name}{" "}
+          {artwork?.alternateName != undefined
+            ? `// ${artwork.alternateName}`
+            : ""}
+        </h2>
+        {artwork?.alternateImgSrc != undefined ? (
+          <div id="image-slider">
+            <div>
+              <img
+                src={artwork?.alternateImgSrc}
+                alt={artwork?.alternateName}
+              />
+            </div>
+            <img src={artwork?.imgSrc} alt={artwork?.name} />
           </div>
-          <img src={artwork?.imgSrc} alt={artwork?.name} />
-        </div>
-      ) : (
-        <div id="image-container">
-          <img src={artwork?.imgSrc} alt={artwork?.name} />
-        </div>
-      )}
-    </div>
+        ) : (
+          <div id="image-container">
+            <img src={artwork?.imgSrc} alt={artwork?.name} />
+          </div>
+        )}
+      </div>
+    </>
   );
 };

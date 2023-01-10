@@ -12,9 +12,7 @@ export const Hero = () => {
         </h1>
       </div>
       <div className="hero-frame"></div>
-      <div className="hero-image">
-        {/* <img src="/assets/art/pink-eye-color.png" alt="Test" /> */}
-      </div>
+      <div className="hero-image"></div>
     </div>
   );
 };
