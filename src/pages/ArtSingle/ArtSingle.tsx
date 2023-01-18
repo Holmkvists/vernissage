@@ -1,18 +1,28 @@
 // IMPORTS
 
-import { art } from "../../data/art";
 import { useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { IArt } from "../../models/IArt";
 
 export const ArtSingle = () => {
   let params = useParams();
 
-  const artwork = art.find(({ name }) => name === params.name);
+  const [artwork, setArtwork] = useState<IArt>({
+    _id: 0,
+    name: "",
+    imgSrc: "",
+    altName: "",
+    altImgSrc: "",
+  });
 
-  // console.log(
-  //   decodeURIComponent(
-  //     "http://localhost:3000/exhibition/Pink%20eyes%20-%20Color"
-  //   )
-  // );
+  useEffect(() => {
+    fetch("http://localhost:4000/art/single-art/" + params.id)
+      .then((res) => res.json())
+      .then((res) => {
+        setArtwork(res);
+      })
+      .catch((err) => console.error(err));
+  }, []);
 
   return (
     <>
@@ -21,24 +31,19 @@ export const ArtSingle = () => {
       </a>
       <div id="art-container">
         <h2>
-          {artwork?.name}{" "}
-          {artwork?.alternateName !== undefined
-            ? `// ${artwork.alternateName}`
-            : ""}
+          {artwork.name}{" "}
+          {artwork.altName !== undefined ? `// ${artwork.altName}` : ""}
         </h2>
-        {artwork?.alternateImgSrc !== undefined ? (
+        {artwork.altImgSrc !== undefined ? (
           <div id="image-slider">
             <div>
-              <img
-                src={artwork?.alternateImgSrc}
-                alt={artwork?.alternateName}
-              />
+              <img src={artwork.altImgSrc} alt={artwork.altName} />
             </div>
-            <img src={artwork?.imgSrc} alt={artwork?.name} />
+            <img src={artwork.imgSrc} alt={artwork.name} />
           </div>
         ) : (
           <div id="image-container">
-            <img src={artwork?.imgSrc} alt={artwork?.name} />
+            <img src={artwork.imgSrc} alt={artwork.name} />
           </div>
         )}
       </div>

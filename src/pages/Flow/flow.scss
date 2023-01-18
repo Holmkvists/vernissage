@@ -4,38 +4,50 @@
 
 // STYLING
 
-#exhibitions-container {
+#flow-container {
   margin: 75px auto;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 50px;
 
-  .art {
+  .item {
     width: 75%;
     transition: padding 0.25s ease;
-    // border: 1px solid $black;
 
     img {
       width: 100%;
     }
+
+    p {
+      margin: 0.5em;
+      color: $black;
+    }
   }
 
-  .art:hover {
+  .item:hover {
     border: 1px solid $blue;
     padding: 1em;
   }
 }
 
 @media screen and (min-width: 768px) {
-  #exhibitions-container {
+  #flow-container {
     flex-direction: row;
-    justify-content: space-evenly;
     width: 80%;
+    gap: 5%;
     flex-wrap: wrap;
 
-    .art {
+    .item {
       width: 45%;
+    }
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  #flow-container {
+    .item {
+      width: 25%;
     }
   }
 }

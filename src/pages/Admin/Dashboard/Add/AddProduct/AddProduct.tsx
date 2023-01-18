@@ -2,7 +2,7 @@ export const AddProduct = () => {
   return (
     <div className="add-container">
       <form
-        action="http://localhost:4000/add-product"
+        action="http://localhost:4000/shop/add-product"
         method="post"
         encType="multipart/form-data"
       >

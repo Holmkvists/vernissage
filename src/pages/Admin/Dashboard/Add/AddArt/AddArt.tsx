@@ -2,7 +2,7 @@ export const AddArt = () => {
   return (
     <div className="add-container">
       <form
-        action="http://localhost:4000/add-art"
+        action="http://localhost:4000/art/add-art"
         method="post"
         encType="multipart/form-data"
       >
