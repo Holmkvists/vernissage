@@ -25,8 +25,8 @@ import "./scss/main.scss";
 function App() {
   return (
     <>
-      <Header />
       <BrowserRouter>
+        <Header />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/:flowType" element={<Flow />} />
@@ -36,8 +36,8 @@ function App() {
           <Route path="/admin/add/:type" element={<Add />} />
           <Route path="/admin/edit/:type" element={<Edit />}></Route>
         </Routes>
+        <Footer />
       </BrowserRouter>
-      <Footer />
     </>
   );
 }

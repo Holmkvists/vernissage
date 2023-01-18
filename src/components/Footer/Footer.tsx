@@ -1,16 +1,18 @@
+import { Link } from "react-router-dom";
+
 export const Footer = () => {
   return (
     <footer>
       <nav>
         <ul>
           <li>
-            <a href="/exhibition">Exhibition</a>
+            <Link to={"/exhibition"}>Exhibition</Link>
           </li>
           <li>
-            <a href="/shop">Shop</a>
+            <Link to={"/shop"}>Shop</Link>
           </li>
           <li>
-            <a href="#">About</a>
+            <Link to={"/"}>About</Link>
           </li>
         </ul>
       </nav>

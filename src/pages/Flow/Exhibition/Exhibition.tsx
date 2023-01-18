@@ -1,20 +1,13 @@
 import { useEffect, useState } from "react";
 import { IArt } from "../../../models/IArt";
 import { Link } from "react-router-dom";
-// import { art } from "../../data/art";
+import { getArt } from "../../../api/api";
 
 export const Exhibition = () => {
   const [art, setArt] = useState<IArt[]>([]);
 
   useEffect(() => {
-    if (art.length !== 0) return;
-
-    fetch("http://localhost:4000/art/get-art")
-      .then((res) => res.json())
-      .then((res) => {
-        setArt(res);
-      })
-      .catch((err) => console.error(err));
+    getArt(setArt);
   }, []);
 
   return (

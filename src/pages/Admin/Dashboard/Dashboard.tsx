@@ -1,8 +1,18 @@
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { art } from "../../../data/art";
-import { shop } from "../../../data/shop";
+import { getArt, getProducts } from "../../../api/api";
+import { IArt } from "../../../models/IArt";
+import { IShop } from "../../../models/IShop";
 
 export const Dashboard = () => {
+  const [art, setArt] = useState<IArt[]>([]);
+  const [shop, setShop] = useState<IShop[]>([]);
+
+  useEffect(() => {
+    getArt(setArt);
+    getProducts(setShop);
+  }, []);
+
   return (
     <div className="dashboard-container">
       <div className="dashboard-art-container">

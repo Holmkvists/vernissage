@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { getProducts } from "../../../api/api";
 // import { shop } from "../../data/shop";
 import { IShop } from "../../../models/IShop";
 
@@ -7,12 +8,7 @@ export const Shop = () => {
   const [shop, setShop] = useState<IShop[]>([]);
 
   useEffect(() => {
-    fetch("http://localhost:4000/shop/get-products")
-      .then((res) => res.json())
-      .then((res) => {
-        setShop(res);
-      })
-      .catch((err) => console.log(err));
+    getProducts(setShop);
   }, []);
 
   return (

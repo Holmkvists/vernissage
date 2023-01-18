@@ -1,11 +1,17 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { ShoppingBag } from "../ShoppingBag/ShoppingBag";
 
 export const Header = () => {
-  const [isToggled, setIsToggled] = useState(false);
+  const [menuToggle, setMenuToggle] = useState(false);
+  const [bagToggle, setBagToggle] = useState(false);
 
   const toggleMenu = () => {
-    setIsToggled(!isToggled);
+    setMenuToggle(!menuToggle);
+  };
+
+  const toggleBag = () => {
+    setBagToggle(!bagToggle);
   };
 
   return (
@@ -16,17 +22,18 @@ export const Header = () => {
         </a>
       </div>
       <nav>
-        <i className="bi bi-bag bag"></i>
+        <i onClick={toggleBag} className="bi bi-bag bag"></i>
+        {bagToggle ? <ShoppingBag /> : ""}
         <i onClick={toggleMenu} className="bi bi-list hamburger"></i>
-        <ul className={`${isToggled ? "showMenu" : ""}`}>
+        <ul className={`${menuToggle ? "showMenu" : ""}`}>
           <li>
-            <a href="/exhibition">Exhibition</a>
+            <Link to={"/exhibition"}>Exhibition</Link>
           </li>
           <li>
-            <a href="/shop">Shop</a>
+            <Link to={"/shop"}>Shop</Link>
           </li>
           <li>
-            <a href="#">About</a>
+            <Link to={"/"}>About</Link>
           </li>
         </ul>
       </nav>

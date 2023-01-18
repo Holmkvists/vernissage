@@ -3,6 +3,7 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { IArt } from "../../models/IArt";
+import { getSingleArt } from "../../api/api";
 
 export const ArtSingle = () => {
   let params = useParams();
@@ -16,12 +17,7 @@ export const ArtSingle = () => {
   });
 
   useEffect(() => {
-    fetch("http://localhost:4000/art/single-art/" + params.id)
-      .then((res) => res.json())
-      .then((res) => {
-        setArtwork(res);
-      })
-      .catch((err) => console.error(err));
+    getSingleArt(params.id, setArtwork);
   }, []);
 
   return (
