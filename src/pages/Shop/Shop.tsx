@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { shop } from "../../data/Shop";
+import { shop } from "../../data/shop";
 
 export const Shop = () => {
   return (

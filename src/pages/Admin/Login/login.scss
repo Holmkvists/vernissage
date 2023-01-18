@@ -1,0 +1,52 @@
+// IMPORTS
+
+@import "../../../scss/variables.scss";
+
+// STYLING
+
+.login-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: calc(100vh - 325px);
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 300px;
+
+    label {
+      text-transform: uppercase;
+      font-size: large;
+      font-weight: 600;
+      color: $blue;
+    }
+
+    input[type="password"] {
+      border: 0;
+      border: 1px solid $black;
+    }
+
+    input[type="password"]:focus {
+      outline: 0;
+    }
+
+    input[type="submit"] {
+      cursor: pointer;
+      width: fit-content;
+      padding: 0.5em;
+      margin-left: auto;
+      text-transform: uppercase;
+      color: $white;
+      background-color: $blue;
+      border: 0;
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .login-container {
+    height: calc(100vh - 225px);
+  }
+}

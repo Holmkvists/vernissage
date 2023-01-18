@@ -1,17 +1,12 @@
 // IMPORTS
 
-import { IArt } from "../../models/IArt";
-import { art } from "../../data/Art";
+import { art } from "../../data/art";
 import { useParams } from "react-router-dom";
 
 export const ArtSingle = () => {
   let params = useParams();
 
-  console.log(params);
-
   const artwork = art.find(({ name }) => name === params.name);
-
-  console.log(artwork);
 
   // console.log(
   //   decodeURIComponent(
@@ -27,11 +22,11 @@ export const ArtSingle = () => {
       <div id="art-container">
         <h2>
           {artwork?.name}{" "}
-          {artwork?.alternateName != undefined
+          {artwork?.alternateName !== undefined
             ? `// ${artwork.alternateName}`
             : ""}
         </h2>
-        {artwork?.alternateImgSrc != undefined ? (
+        {artwork?.alternateImgSrc !== undefined ? (
           <div id="image-slider">
             <div>
               <img

@@ -4,10 +4,10 @@ export const Footer = () => {
       <nav>
         <ul>
           <li>
-            <a href="#">Exhibition</a>
+            <a href="/exhibition">Exhibition</a>
           </li>
           <li>
-            <a href="#">Shop</a>
+            <a href="/shop">Shop</a>
           </li>
           <li>
             <a href="#">About</a>

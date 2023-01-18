@@ -34,6 +34,7 @@
     position: relative;
     display: inline-block;
     line-height: 0;
+    padding: 0 50px;
 
     img {
       user-select: none;
@@ -42,8 +43,10 @@
 
     div {
       position: absolute;
+      left: 0;
       width: 25px;
-      max-width: 100%;
+      padding: 0 50px;
+      max-width: calc(100% - 50px);
       overflow: hidden;
       resize: horizontal;
     }
@@ -62,6 +65,20 @@
       background: linear-gradient(-45deg, black 50%, transparent 0);
       -webkit-filter: drop-shadow(0 0 2px black);
       filter: drop-shadow(0 0 2px black);
+    }
+
+    div::after {
+      content: "DRAG ME";
+      display: block;
+      position: absolute;
+      right: 0;
+      bottom: 0px;
+      overflow: auto;
+      font: bold 10px/100% Arial;
+      padding: 0.5em;
+      background-color: $white;
+      border: 1px solid $blue;
+      color: $blue;
     }
 
     ::-webkit-resizer {

@@ -106,9 +106,12 @@ header:hover {
 
         li {
           height: 100%;
-          padding: 1em;
           display: flex;
           align-items: center;
+
+          a {
+            padding: 1.5em;
+          }
         }
 
         li:hover {

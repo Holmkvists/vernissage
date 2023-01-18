@@ -5,12 +5,22 @@
 // STYLING
 
 .about-container {
+  display: flex;
+  align-items: center;
   margin-top: 50px;
-  height: 200px;
   background-color: $blue;
 
+  h1 {
+    font-size: 60px;
+    transform: scale(0.5, 1);
+    color: $white;
+    margin: 0.5em;
+  }
+
   p {
-    font-size: 20pt;
+    font-family: Georgia, "Times New Roman", Times, serif;
+    font-style: italic;
+    font-size: 16pt;
     color: white;
   }
 }

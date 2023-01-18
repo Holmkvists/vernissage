@@ -1,0 +1,21 @@
+// IMPORTS
+
+@import "../../../scss/variables.scss";
+
+// STYLING
+
+.dashboard-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 100px;
+
+  a {
+    font-size: xx-large;
+    font-style: italic;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: $blue;
+  }
+}
