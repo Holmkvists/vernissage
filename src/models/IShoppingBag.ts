@@ -1,4 +1,5 @@
 export interface IShoppingBag {
+  id: number;
   name: string;
   imgSrc: string;
   size: string;

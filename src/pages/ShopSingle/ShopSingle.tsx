@@ -1,11 +1,11 @@
 // IMPORTS
 
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { IShop } from "../../models/IShop";
 import { getSingleProduct } from "../../api/api";
-import { shoppingBag } from "../../data/shoppingBag";
 import { IShoppingBag } from "../../models/IShoppingBag";
+import { saveItemToLocalStorage } from "../../utils/localStorage/localStorage";
 
 export const ShopSingle = () => {
   // GET THE SELECTED PRODUCT
@@ -27,7 +27,10 @@ export const ShopSingle = () => {
 
   // ADDING PRODUCT TO SHOPPING BAG
 
+  let [shoppingBag, setShoppingBag] = useState<IShoppingBag[]>([]);
+
   const [bagItem, setBagItem] = useState<IShoppingBag>({
+    id: 0,
     name: "",
     imgSrc: "",
     size: "",
@@ -35,25 +38,28 @@ export const ShopSingle = () => {
     material: "",
   });
 
+  const [sizeSelected, setSizeSelected] = useState(false);
   const [itemAdded, setItemAdded] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    if (e.target.name == "size") {
+    if (e.target.name === "size") {
       bagItem.size = e.target.value;
     }
 
+    bagItem.id = Math.random();
     bagItem.name = product.name;
     bagItem.imgSrc = product.imgSrc;
     bagItem.price = product.price;
     bagItem.material = product.material;
 
     setBagItem(bagItem);
+    setSizeSelected(true);
   };
 
   const handleClick = () => {
-    shoppingBag.push(bagItem);
+    saveItemToLocalStorage(shoppingBag, bagItem, setShoppingBag);
     setItemAdded(true);
-    console.log(shoppingBag);
+    setSizeSelected(false);
   };
 
   return (
@@ -79,8 +85,20 @@ export const ShopSingle = () => {
             </option>
           ))}
         </select>
-        <button onClick={handleClick}>Add to cart</button>
         <p>Material: {product.material}</p>
+        {itemAdded ? (
+          <div>
+            <Link to={"/shop/checkout"}>Go to checkout</Link>{" "}
+            <Link to="/shop">Shop more</Link>
+          </div>
+        ) : (
+          ""
+        )}
+        {sizeSelected ? (
+          <button onClick={handleClick}>Add to shopping bag</button>
+        ) : (
+          ""
+        )}
       </div>
     </div>
   );

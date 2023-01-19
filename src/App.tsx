@@ -19,6 +19,7 @@ import { Edit } from "./pages/Admin/Dashboard/Edit/Edit";
 // SCSS
 
 import "./scss/main.scss";
+import { Checkout } from "./pages/Checkout/Checkout";
 
 // COMPONENTS STRUCTURE
 
@@ -32,6 +33,7 @@ function App() {
           <Route path="/:flowType" element={<Flow />} />
           <Route path="/exhibition/:id" element={<ArtSingle />} />
           <Route path="/shop/:id" element={<ShopSingle />} />
+          <Route path="/shop/checkout" element={<Checkout />} />
           <Route path="/admin" element={<Authorization />} />
           <Route path="/admin/add/:type" element={<Add />} />
           <Route path="/admin/edit/:type" element={<Edit />}></Route>

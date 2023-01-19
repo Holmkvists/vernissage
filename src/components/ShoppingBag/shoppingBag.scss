@@ -1,0 +1,86 @@
+// IMPORTS
+
+@import "../../scss/variables.scss";
+
+// STYLING
+
+#shopping-bag-container {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 74px;
+  width: 100%;
+  right: 0;
+  background-color: $white;
+  z-index: 10;
+  border: 1px solid $black;
+
+  .bag-item {
+    display: flex;
+    outline: 1px solid $black;
+
+    .bag-item-img {
+      width: 25%;
+
+      img {
+        width: 100%;
+        padding: 0.25em;
+      }
+    }
+
+    .bag-item-info {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      width: 75%;
+
+      .info-layout {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        > * {
+          margin: 0.5em;
+        }
+
+        button {
+          width: fit-content;
+          height: fit-content;
+        }
+      }
+    }
+  }
+
+  a {
+    width: 100%;
+    text-align: right;
+    padding: 1em;
+  }
+
+  #bag-checkout-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    > * {
+      padding: 0.25em 0.75em;
+    }
+
+    p {
+      white-space: nowrap;
+    }
+  }
+}
+
+@media screen and (min-width: 500px) {
+  #shopping-bag-container {
+    width: 60%;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  #shopping-bag-container {
+    width: 50%;
+  }
+}

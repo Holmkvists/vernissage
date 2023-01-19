@@ -1,0 +1,23 @@
+// IMPORTS
+
+@import "../../scss/variables.scss";
+
+// STYLING
+
+#checkout-container {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  margin: 25px auto;
+
+  .checkout-form-container {
+    form {
+      display: flex;
+      flex-direction: column;
+
+      label {
+        margin: 5px 0;
+      }
+    }
+  }
+}

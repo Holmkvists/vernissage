@@ -12,69 +12,82 @@ header {
   height: 75px;
   border-bottom: 1px solid black;
 
-  div {
+  #logo-container {
     height: 65px;
+
     img {
       height: 100%;
     }
   }
 
-  nav {
+  .nav-container {
     display: flex;
     align-items: center;
 
     i {
       margin: 1em 0.5em;
       cursor: pointer;
+      font-size: 18px;
     }
 
-    .hamburger {
-      font-size: 24px;
-    }
-
-    .bag {
-      font-size: 20px;
-      margin: 20px 1em 25px;
-    }
-
-    .hamburger:hover,
-    .bag:hover {
+    i:hover {
       color: $blue;
     }
 
-    ul {
+    .nav-bag-container {
       display: none;
-      padding: 0;
-      margin: 0;
-      z-index: 10;
+    }
 
-      li {
-        a {
-          color: $black;
-          text-transform: uppercase;
-          font-family: Arial, Helvetica, sans-serif;
-        }
+    #display-bag {
+      display: block;
+    }
 
-        a:hover {
-          color: $blue;
+    nav {
+      display: flex;
+      align-items: center;
+
+      .hamburger {
+        font-size: 24px;
+      }
+
+      .hamburger:hover {
+        color: $blue;
+      }
+
+      ul {
+        display: none;
+        padding: 0;
+        margin: 0;
+        z-index: 10;
+
+        li {
+          a {
+            color: $black;
+            text-transform: uppercase;
+            font-family: Arial, Helvetica, sans-serif;
+          }
+
+          a:hover {
+            color: $blue;
+          }
         }
       }
-    }
 
-    .showMenu {
-      display: flex;
-      flex-direction: column;
-      position: absolute;
-      gap: 20px;
-      top: 74px;
-      right: 0;
-      padding: 1em;
-      background-color: $white;
-      border: 1px solid $black;
-    }
+      .showMenu {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        gap: 20px;
+        top: 74px;
+        right: 0;
+        padding: 1em;
+        background-color: $white;
+        border: 1px solid $black;
+      }
 
-    .showMenu:hover {
-      border: 1px solid $blue;
+      .showMenu:hover {
+        border: 1px solid $blue;
+      }
     }
   }
 }
@@ -85,37 +98,43 @@ header:hover {
 
 @media screen and (min-width: 768px) {
   header {
-    nav {
-      height: 100%;
-
-      .hamburger {
-        display: none;
-      }
-
-      .bag {
+    .nav-container {
+      i {
         position: absolute;
-        right: 10px;
+        right: 15px;
       }
 
-      ul {
-        display: flex;
-        align-items: center;
-        position: initial;
-        margin-right: 65px;
+      .nav-bag-container {
+        display: block;
+      }
+
+      nav {
         height: 100%;
 
-        li {
-          height: 100%;
-          display: flex;
-          align-items: center;
-
-          a {
-            padding: 1.5em;
-          }
+        .hamburger {
+          display: none;
         }
 
-        li:hover {
-          outline: 1px solid $blue;
+        ul {
+          display: flex;
+          align-items: center;
+          position: initial;
+          margin-right: 65px;
+          height: 100%;
+
+          li {
+            height: 100%;
+            display: flex;
+            align-items: center;
+
+            a {
+              padding: 1.75em;
+            }
+          }
+
+          li:hover {
+            outline: 1px solid $blue;
+          }
         }
       }
     }
