@@ -5,10 +5,7 @@ export const Hero = () => {
         <p>Discover</p>
         <p>The new</p>
         <h1>
-          <a href="/exhibition">
-            {/* skrivstil? */}
-            Exhibition
-          </a>
+          <a href="/exhibition">Exhibition</a>
         </h1>
       </div>
       <div className="hero-frame"></div>

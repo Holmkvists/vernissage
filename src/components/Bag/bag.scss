@@ -18,6 +18,7 @@
   .bag-item {
     display: flex;
     outline: 1px solid $black;
+    outline-offset: -1px;
 
     .bag-item-img {
       width: 25%;
@@ -45,6 +46,12 @@
         }
 
         button {
+          cursor: pointer;
+          color: $blue;
+          font-weight: bold;
+          background-color: $white;
+          border: 0;
+          text-transform: uppercase;
           width: fit-content;
           height: fit-content;
         }
@@ -56,12 +63,17 @@
     width: 100%;
     text-align: right;
     padding: 1em;
+    text-transform: uppercase;
+    color: $blue;
+    font-weight: bold;
   }
 
   #bag-checkout-info {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    outline: 1px solid $black;
+    outline-offset: -1px;
 
     > * {
       padding: 0.25em 0.75em;

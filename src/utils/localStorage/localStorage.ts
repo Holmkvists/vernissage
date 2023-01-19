@@ -56,3 +56,9 @@ export const removeItemFromShoppingBag = (
   bagState(shoppingBag);
   return calculateTotalPrice(shoppingBag, priceState);
 };
+
+// REMOVE ALL ITEMS FROM LOCAL STORAGE
+
+export const removeAllItemsFromLocalStorage = () => {
+  localStorage.removeItem("shopping-bag");
+};

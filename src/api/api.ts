@@ -1,6 +1,8 @@
 import { IArt } from "../models/IArt";
 import { IShop } from "../models/IShop";
 
+/* ART */
+
 // GET ALL ART
 
 export const getArt = async (
@@ -27,6 +29,8 @@ export const getSingleArt = async (
     })
     .catch((err) => console.error(err));
 };
+
+/* PRODUCTS */
 
 // GET ALL PRODUCTS
 

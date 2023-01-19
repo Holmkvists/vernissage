@@ -6,21 +6,35 @@ import {
   removeItemFromShoppingBag,
 } from "../../utils/localStorage/localStorage";
 
-export const ShoppingBag = () => {
-  let [shoppingBag, setShoppingBag] = useState<IShoppingBag[]>([]);
+interface IBagProps {
+  shoppingBag: IShoppingBag[];
+  setShoppingBag: React.Dispatch<React.SetStateAction<IShoppingBag[]>>;
+}
+
+export const Bag = (props: IBagProps) => {
+  // let [shoppingBag, setShoppingBag] = useState<IShoppingBag[]>([]);
   let [totalPrice, setTotalPrice] = useState("");
 
   useEffect(() => {
-    getItemsFromLocalStorage(shoppingBag, setShoppingBag, setTotalPrice);
+    getItemsFromLocalStorage(
+      props.shoppingBag,
+      props.setShoppingBag,
+      setTotalPrice
+    );
   }, []);
 
   const handleClick = (id: number) => {
-    removeItemFromShoppingBag(id, shoppingBag, setShoppingBag, setTotalPrice);
+    removeItemFromShoppingBag(
+      id,
+      props.shoppingBag,
+      props.setShoppingBag,
+      setTotalPrice
+    );
   };
 
   return (
     <div id="shopping-bag-container">
-      {shoppingBag.map((product, i) => (
+      {props.shoppingBag.map((product, i) => (
         <div className="bag-item" key={i}>
           <div className="bag-item-img">
             <img src={product.imgSrc} alt={product.name} />
@@ -32,7 +46,7 @@ export const ShoppingBag = () => {
             </div>
             <div className="info-layout">
               <p>Size: {product.size}</p>
-              <button onClick={() => handleClick(product.id)}>X</button>
+              <button onClick={() => handleClick(product.id)}>Remove</button>
             </div>
           </div>
         </div>

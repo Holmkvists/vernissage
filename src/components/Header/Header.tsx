@@ -1,8 +1,14 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { ShoppingBag } from "../ShoppingBag/ShoppingBag";
+import { IShoppingBag } from "../../models/IShoppingBag";
+import { Bag } from "../Bag/Bag";
 
-export const Header = () => {
+interface IHeaderProps {
+  shoppingBag: IShoppingBag[];
+  setShoppingBag: React.Dispatch<React.SetStateAction<IShoppingBag[]>>;
+}
+
+export const Header = (props: IHeaderProps) => {
   const [menuToggle, setMenuToggle] = useState(false);
   const [bagToggle, setBagToggle] = useState(false);
 
@@ -27,7 +33,14 @@ export const Header = () => {
           id={`${bagToggle ? "display-bag" : ""}`}
           className="nav-bag-container"
         >
-          {bagToggle ? <ShoppingBag /> : ""}
+          {bagToggle ? (
+            <Bag
+              shoppingBag={props.shoppingBag}
+              setShoppingBag={props.setShoppingBag}
+            />
+          ) : (
+            ""
+          )}
         </div>
         <nav>
           <i onClick={toggleMenu} className="bi bi-list hamburger"></i>

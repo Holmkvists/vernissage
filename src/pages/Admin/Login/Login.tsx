@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 interface ILoginProps {
-  setIsAuthorized: React.Dispatch<React.SetStateAction<boolean>>;
+  setAdminAuthorized: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export const Login = (props: ILoginProps) => {
@@ -25,7 +25,7 @@ export const Login = (props: ILoginProps) => {
       });
 
       if (response.status === 200) {
-        return props.setIsAuthorized(true);
+        return props.setAdminAuthorized(true);
       }
 
       setIncorrect("Incorrect password");

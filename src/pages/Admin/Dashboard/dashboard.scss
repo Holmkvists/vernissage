@@ -4,18 +4,49 @@
 
 // STYLING
 
-.dashboard-container {
+#dashboard-wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 100px;
+  margin: 50px auto;
 
-  a {
-    font-size: xx-large;
-    font-style: italic;
+  .add-links {
     text-transform: uppercase;
-    font-weight: bold;
     color: $blue;
+    border: 1px solid $blue;
+    padding: 1em;
+  }
+
+  .dashboard-container {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin: 20px auto;
+
+    .item {
+      margin: 10px auto;
+      width: 100%;
+
+      img {
+        width: 100%;
+        border: 1px solid $blue;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 700px) {
+  #dashboard-wrapper {
+    .dashboard-container {
+      flex-direction: row;
+      flex-wrap: wrap;
+      width: 80%;
+      gap: 6.66%;
+
+      .item {
+        width: 20%;
+      }
+    }
   }
 }

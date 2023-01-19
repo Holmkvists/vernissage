@@ -69,7 +69,8 @@ export const ShopSingle = () => {
       </div>
       <div id="product-info-wrapper">
         <h3>{product.name}</h3>
-        <p>{product.price}</p>
+        <p>${product.price}</p>
+        <p>Material: {product.material}</p>
         <select
           name="size"
           id="size-select"
@@ -85,17 +86,16 @@ export const ShopSingle = () => {
             </option>
           ))}
         </select>
-        <p>Material: {product.material}</p>
-        {itemAdded ? (
-          <div>
-            <Link to={"/shop/checkout"}>Go to checkout</Link>{" "}
-            <Link to="/shop">Shop more</Link>
-          </div>
+        {sizeSelected ? (
+          <button onClick={handleClick}>Add to shopping bag</button>
         ) : (
           ""
         )}
-        {sizeSelected ? (
-          <button onClick={handleClick}>Add to shopping bag</button>
+        {itemAdded ? (
+          <>
+            <Link to={"/shop/checkout"}>Go to checkout</Link>{" "}
+            <Link to="/shop">Shop more</Link>
+          </>
         ) : (
           ""
         )}

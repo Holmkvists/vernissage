@@ -6,21 +6,21 @@
 
 .about-container {
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  margin-top: 50px;
   background-color: $blue;
 
   h1 {
     font-size: 60px;
     transform: scale(0.5, 1);
     color: $white;
-    margin: 0.5em;
   }
 
   p {
-    font-family: Georgia, "Times New Roman", Times, serif;
+    font-family: $bodyTextFont;
     font-style: italic;
     font-size: 16pt;
     color: white;
+    padding: 0 1em;
   }
 }

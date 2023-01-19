@@ -18,7 +18,7 @@ export const Shop = () => {
           <Link to={"/shop/" + product._id}>
             <img src={product.imgSrc} alt={product.name} />
             <p>{product.name}</p>
-            <p>{product.price}</p>
+            <p>${product.price}</p>
           </Link>
         </div>
       ))}

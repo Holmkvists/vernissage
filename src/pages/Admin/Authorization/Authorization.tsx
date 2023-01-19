@@ -2,15 +2,18 @@ import { useState } from "react";
 import { Login } from "../Login/Login";
 import { Dashboard } from "../Dashboard/Dashboard";
 
-export const Authorization = () => {
-  const [isAuthorized, setIsAuthorized] = useState(false);
+interface IAuthorizationProps {
+  adminAuthorized: boolean;
+  setAdminAuthorized: React.Dispatch<React.SetStateAction<boolean>>;
+}
 
+export const Authorization = (props: IAuthorizationProps) => {
   return (
     <div>
-      {isAuthorized ? (
+      {props.adminAuthorized ? (
         <Dashboard />
       ) : (
-        <Login setIsAuthorized={setIsAuthorized} />
+        <Login setAdminAuthorized={props.setAdminAuthorized} />
       )}
     </div>
   );
