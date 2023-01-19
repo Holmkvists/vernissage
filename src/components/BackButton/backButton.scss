@@ -1,0 +1,31 @@
+// IMPORTS
+
+@import "../../scss/variables.scss";
+
+// STYLING
+
+.back-button {
+  cursor: pointer;
+  background-color: $white;
+  border: 0;
+  position: absolute;
+  top: 100px;
+  left: 25px;
+  color: $black;
+
+  i {
+    font-size: 20pt;
+  }
+}
+
+.back-button:hover {
+  color: $blue;
+}
+
+@media screen and (min-width: 700px) {
+  .back-button {
+    i {
+      font-size: 25pt;
+    }
+  }
+}

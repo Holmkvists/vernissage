@@ -11,11 +11,7 @@ export const CheckoutSummary = (props: ICheckoutSummary) => {
   let [totalPrice, setTotalPrice] = useState("");
 
   useEffect(() => {
-    getItemsFromLocalStorage(
-      props.shoppingBag,
-      props.setShoppingBag,
-      setTotalPrice
-    );
+    getItemsFromLocalStorage(props.setShoppingBag, setTotalPrice);
   }, []);
 
   return (

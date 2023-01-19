@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { IArt } from "../../models/IArt";
 import { getSingleArt } from "../../api/api";
+import { BackButton } from "../../components/BackButton/BackButton";
 
 export const ArtSingle = () => {
   let params = useParams();
@@ -22,9 +23,7 @@ export const ArtSingle = () => {
 
   return (
     <>
-      <a href="/exhibition" className="back-link">
-        <i className="bi bi-arrow-left"></i>
-      </a>
+      <BackButton />
       <div id="art-container">
         <h2>
           {artwork.name}{" "}

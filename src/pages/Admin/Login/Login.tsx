@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { saveAuthorizedToSessionStorage } from "../../../utils/sessionStorage/sessionStorage";
 
 interface ILoginProps {
   setAdminAuthorized: React.Dispatch<React.SetStateAction<boolean>>;
@@ -25,10 +26,9 @@ export const Login = (props: ILoginProps) => {
       });
 
       if (response.status === 200) {
-        return props.setAdminAuthorized(true);
+        saveAuthorizedToSessionStorage(props.setAdminAuthorized);
       }
-
-      setIncorrect("Incorrect password");
+      return setIncorrect("Incorrect password");
     } catch (requestError) {
       console.log(requestError);
     }

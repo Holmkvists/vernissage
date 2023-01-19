@@ -21,7 +21,6 @@ import { Checkout } from "./pages/Checkout/Checkout";
 import { OrderConfirmation } from "./pages/OrderConfirmation/OrderConfirmation";
 import { Authorization } from "./pages/Admin/Authorization/Authorization";
 import { Add } from "./pages/Admin/Dashboard/Add/Add";
-import { Edit } from "./pages/Admin/Dashboard/Edit/Edit";
 
 // SCSS
 
@@ -33,7 +32,7 @@ const App = () => {
   // GLOBAL STATES
 
   const [orderPlaced, setOrderPlaced] = useState(false);
-  const [adminAuthorized, setAdminAuthorized] = useState(true);
+  const [adminAuthorized, setAdminAuthorized] = useState(false);
   const [shoppingBag, setShoppingBag] = useState<IShoppingBag[]>([]);
 
   // COMPONENTS STRUCTURE
@@ -79,7 +78,6 @@ const App = () => {
               />
             }
           />
-          <Route path="/admin/edit/:type" element={<Edit />} />
         </Routes>
         <Footer />
       </BrowserRouter>

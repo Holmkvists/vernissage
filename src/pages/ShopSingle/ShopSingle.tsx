@@ -6,6 +6,7 @@ import { IShop } from "../../models/IShop";
 import { getSingleProduct } from "../../api/api";
 import { IShoppingBag } from "../../models/IShoppingBag";
 import { saveItemToLocalStorage } from "../../utils/localStorage/localStorage";
+import { BackButton } from "../../components/BackButton/BackButton";
 
 export const ShopSingle = () => {
   // GET THE SELECTED PRODUCT
@@ -57,49 +58,52 @@ export const ShopSingle = () => {
   };
 
   const handleClick = () => {
-    saveItemToLocalStorage(shoppingBag, bagItem, setShoppingBag);
+    saveItemToLocalStorage(bagItem, setShoppingBag);
     setItemAdded(true);
     setSizeSelected(false);
   };
 
   return (
-    <div className="product-container">
-      <div id="product-image-wrapper">
-        <img src={product.imgSrc} alt={product.name} />
-      </div>
-      <div id="product-info-wrapper">
-        <h3>{product.name}</h3>
-        <p>${product.price}</p>
-        <p>Material: {product.material}</p>
-        <select
-          name="size"
-          id="size-select"
-          onChange={handleChange}
-          defaultValue="default"
-        >
-          <option disabled value="default">
-            Select size
-          </option>
-          {product.sizes.map((size, i) => (
-            <option value={size} key={i}>
-              {size}
+    <>
+      <BackButton />
+      <div className="product-container">
+        <div id="product-image-wrapper">
+          <img src={product.imgSrc} alt={product.name} />
+        </div>
+        <div id="product-info-wrapper">
+          <h3>{product.name}</h3>
+          <p>${product.price}</p>
+          <p>Material: {product.material}</p>
+          <select
+            name="size"
+            id="size-select"
+            onChange={handleChange}
+            defaultValue="default"
+          >
+            <option disabled value="default">
+              Select size
             </option>
-          ))}
-        </select>
-        {sizeSelected ? (
-          <button onClick={handleClick}>Add to shopping bag</button>
-        ) : (
-          ""
-        )}
-        {itemAdded ? (
-          <>
-            <Link to={"/shop/checkout"}>Go to checkout</Link>{" "}
-            <Link to="/shop">Shop more</Link>
-          </>
-        ) : (
-          ""
-        )}
+            {product.sizes.map((size, i) => (
+              <option value={size} key={i}>
+                {size}
+              </option>
+            ))}
+          </select>
+          {sizeSelected ? (
+            <button onClick={handleClick}>Add to shopping bag</button>
+          ) : (
+            ""
+          )}
+          {itemAdded ? (
+            <>
+              <Link to={"/shop/checkout"}>Go to checkout</Link>{" "}
+              <Link to="/shop">Shop more</Link>
+            </>
+          ) : (
+            ""
+          )}
+        </div>
       </div>
-    </div>
+    </>
   );
 };

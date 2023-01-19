@@ -16,21 +16,38 @@
     color: $blue;
     border: 1px solid $blue;
     padding: 1em;
+    margin: 20px auto;
+  }
+
+  h3 {
+    margin: 10px auto;
+    text-transform: uppercase;
   }
 
   .dashboard-container {
     display: flex;
     flex-direction: column;
     width: 50%;
-    margin: 20px auto;
+    // margin: 20px auto;
 
     .item {
-      margin: 10px auto;
+      margin: 20px auto;
       width: 100%;
+      border: 1px solid $blue;
 
       img {
         width: 100%;
-        border: 1px solid $blue;
+      }
+
+      form {
+        input {
+          background-color: $blue;
+          color: $white;
+          text-transform: uppercase;
+          border: 0;
+          padding: 0.5em 1em;
+          cursor: pointer;
+        }
       }
     }
   }
@@ -38,6 +55,9 @@
 
 @media screen and (min-width: 700px) {
   #dashboard-wrapper {
+    h3 {
+      margin: 20px auto;
+    }
     .dashboard-container {
       flex-direction: row;
       flex-wrap: wrap;
@@ -46,6 +66,7 @@
 
       .item {
         width: 20%;
+        margin: 20px 0;
       }
     }
   }

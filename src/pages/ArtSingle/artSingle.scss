@@ -4,22 +4,8 @@
 
 // STYLING
 
-.back-link {
-  position: absolute;
-  margin: 100px 2em 0;
-  width: fit-content;
-  color: $black;
-
-  i {
-    font-size: 20pt;
-  }
-}
-
-.back-link:hover {
-  color: $blue;
-}
-
 #art-container {
+  position: relative;
   width: 80%;
   margin: 50px auto;
   display: flex;

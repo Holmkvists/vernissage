@@ -15,6 +15,16 @@
   z-index: 10;
   border: 1px solid $black;
 
+  .empty-bag {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    h3 {
+      margin: 1em;
+    }
+  }
+
   .bag-item {
     display: flex;
     outline: 1px solid $black;
@@ -60,7 +70,7 @@
   }
 
   a {
-    width: 100%;
+    margin-right: 0;
     text-align: right;
     padding: 1em;
     text-transform: uppercase;
@@ -91,8 +101,14 @@
   }
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 800px) {
   #shopping-bag-container {
     width: 50%;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  #shopping-bag-container {
+    width: 30%;
   }
 }
