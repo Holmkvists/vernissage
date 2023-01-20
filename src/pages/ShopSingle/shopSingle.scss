@@ -11,6 +11,7 @@
   align-items: center;
   width: 75%;
   margin: 50px auto;
+  height: calc(100vh - 325px);
 
   #product-image-wrapper {
     width: 100%;
@@ -69,6 +70,7 @@
 
       img {
         width: 100%;
+        max-width: 450px;
       }
     }
 

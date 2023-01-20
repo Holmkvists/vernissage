@@ -7,8 +7,9 @@
 #checkout-container {
   display: flex;
   flex-direction: column;
+  align-items: center;
   width: 80%;
-  margin: 25px auto;
+  margin: 50px auto;
 
   #checkout-summary-container {
     display: flex;
@@ -47,7 +48,8 @@
   }
 
   #checkout-form-container {
-    margin-top: 25px;
+    width: 100%;
+    margin-top: 50px;
     padding: 1em 2em;
     border: 1px solid $black;
 
@@ -55,20 +57,26 @@
       display: flex;
       flex-direction: column;
 
-      label {
-        margin: 5px 0;
-      }
+      div {
+        display: flex;
+        flex-direction: column;
 
-      input[type="submit"] {
-        margin: 20px auto 0;
-        width: fit-content;
-        background-color: $blue;
-        color: $white;
-        border: 0;
-        padding: 1em;
-        text-transform: uppercase;
+        label {
+          margin: 5px 0;
+        }
       }
     }
+  }
+
+  input[type="submit"] {
+    cursor: pointer;
+    margin: 20px auto 0;
+    width: fit-content;
+    background-color: $blue;
+    color: $white;
+    border: 0;
+    padding: 1em;
+    text-transform: uppercase;
   }
 }
 
@@ -90,8 +98,20 @@
     }
 
     #checkout-form-container {
-      width: 50%;
-      margin: 25px auto 0;
+      form {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        gap: 5%;
+
+        div {
+          width: 40%;
+        }
+
+        input[type="submit"] {
+          margin-right: 5%;
+        }
+      }
     }
   }
 }

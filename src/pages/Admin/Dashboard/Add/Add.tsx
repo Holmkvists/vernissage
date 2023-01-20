@@ -1,7 +1,8 @@
+import { useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { getAuthorizedFromSessionStorage } from "../../../../utils/sessionStorage/sessionStorage";
 import { Login } from "../../Login/Login";
-import { AddArt } from "./AddArt/AddArt";
-import { AddProduct } from "./AddProduct/AddProduct";
+import { AddItem } from "./AddItem/AddItem";
 
 interface IAddProps {
   adminAuthorized: boolean;
@@ -9,14 +10,19 @@ interface IAddProps {
 }
 
 export const Add = (props: IAddProps) => {
+  useEffect(() => {
+    getAuthorizedFromSessionStorage(props.setAdminAuthorized);
+  }, []);
+
   let params = useParams();
 
-  if (props.adminAuthorized === true) {
-    if (params.type === "art") {
-      return <AddArt />;
-    }
-    return <AddProduct />;
-  }
-
-  return <Login setAdminAuthorized={props.setAdminAuthorized} />;
+  return (
+    <>
+      {props.adminAuthorized ? (
+        <AddItem type={params.type} />
+      ) : (
+        <Login setAdminAuthorized={props.setAdminAuthorized} />
+      )}
+    </>
+  );
 };
