@@ -33,8 +33,8 @@ export const Login = (props: ILoginProps) => {
       }
 
       return;
-    } catch (requestError) {
-      console.log(requestError);
+    } catch (error) {
+      console.log(error);
     }
   };
 

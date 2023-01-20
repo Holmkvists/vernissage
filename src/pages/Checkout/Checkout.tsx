@@ -1,30 +1,39 @@
 // IMPORTS
 
 import { IShoppingBag } from "../../models/IShoppingBag";
+import { useState } from "react";
 
 // COMPONENTS
 
 import { CheckoutSummary } from "./components/CheckoutSummary/CheckoutSummary";
 import { CheckoutForm } from "./components/CheckoutForm/CheckoutForm";
+import { Header } from "../../components/Header/Header";
+import { Footer } from "../../components/Footer/Footer";
+import { OrderConfirmation } from "./OrderConfirmation/OrderConfirmation";
 
-interface ICheckoutProps {
-  shoppingBag: IShoppingBag[];
-  setShoppingBag: React.Dispatch<React.SetStateAction<IShoppingBag[]>>;
-  setOrderPlaced: React.Dispatch<React.SetStateAction<boolean>>;
-}
+export const Checkout = () => {
+  const [shoppingBag, setShoppingBag] = useState<IShoppingBag[]>([]);
+  const [orderPlaced, setOrderPlaced] = useState(false);
 
-export const Checkout = (props: ICheckoutProps) => {
   return (
-    <div id="checkout-container">
-      <CheckoutSummary
-        shoppingBag={props.shoppingBag}
-        setShoppingBag={props.setShoppingBag}
-      />
-      <CheckoutForm
-        setOrderPlaced={props.setOrderPlaced}
-        shoppingBag={props.shoppingBag}
-        setShoppingBag={props.setShoppingBag}
-      />
-    </div>
+    <>
+      <Header />
+      {orderPlaced ? (
+        <OrderConfirmation />
+      ) : (
+        <div id="checkout-container">
+          <CheckoutSummary
+            shoppingBag={shoppingBag}
+            setShoppingBag={setShoppingBag}
+          />
+          <CheckoutForm
+            setOrderPlaced={setOrderPlaced}
+            shoppingBag={shoppingBag}
+            setShoppingBag={setShoppingBag}
+          />
+        </div>
+      )}
+      <Footer />
+    </>
   );
 };

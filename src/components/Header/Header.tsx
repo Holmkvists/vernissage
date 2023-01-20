@@ -5,12 +5,7 @@ import { Link } from "react-router-dom";
 import { IShoppingBag } from "../../models/IShoppingBag";
 import { Bag } from "../Bag/Bag";
 
-interface IHeaderProps {
-  shoppingBag: IShoppingBag[];
-  setShoppingBag: React.Dispatch<React.SetStateAction<IShoppingBag[]>>;
-}
-
-export const Header = (props: IHeaderProps) => {
+export const Header = () => {
   const [menuToggle, setMenuToggle] = useState(false);
   const [bagToggle, setBagToggle] = useState(false);
 
@@ -39,14 +34,7 @@ export const Header = (props: IHeaderProps) => {
           id={`${bagToggle ? "display-bag" : ""}`}
           className="nav-bag-container"
         >
-          {bagToggle ? (
-            <Bag
-              shoppingBag={props.shoppingBag}
-              setShoppingBag={props.setShoppingBag}
-            />
-          ) : (
-            ""
-          )}
+          {bagToggle ? <Bag /> : ""}
         </div>
         <nav>
           <i onClick={toggleMenu} className="bi bi-list hamburger"></i>

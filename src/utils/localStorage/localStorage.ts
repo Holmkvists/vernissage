@@ -22,10 +22,14 @@ export const saveItemToLocalStorage = (
 
 export const getItemsFromLocalStorage = (
   bagState: React.Dispatch<React.SetStateAction<IShoppingBag[]>>,
-  priceState: (value: React.SetStateAction<string>) => void
+  priceState: (value: React.SetStateAction<string>) => void,
+  emptyState: React.Dispatch<React.SetStateAction<boolean>>
 ) => {
   const shoppingBag = JSON.parse(localStorage.getItem("shopping-bag") || "[]");
 
+  if (shoppingBag.length === 0) {
+    return emptyState(true);
+  }
   bagState(shoppingBag);
   return calculateTotalPrice(shoppingBag, priceState);
 };

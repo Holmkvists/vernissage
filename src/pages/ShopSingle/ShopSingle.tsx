@@ -7,6 +7,8 @@ import { getSingleProduct } from "../../api/api";
 import { IShoppingBag } from "../../models/IShoppingBag";
 import { saveItemToLocalStorage } from "../../utils/localStorage/localStorage";
 import { BackButton } from "../../components/BackButton/BackButton";
+import { Header } from "../../components/Header/Header";
+import { Footer } from "../../components/Footer/Footer";
 
 export const ShopSingle = () => {
   // GET THE SELECTED PRODUCT
@@ -65,6 +67,7 @@ export const ShopSingle = () => {
 
   return (
     <>
+      <Header />
       <BackButton />
       <div className="product-container">
         <div id="product-image-wrapper">
@@ -104,6 +107,7 @@ export const ShopSingle = () => {
           )}
         </div>
       </div>
+      <Footer />
     </>
   );
 };

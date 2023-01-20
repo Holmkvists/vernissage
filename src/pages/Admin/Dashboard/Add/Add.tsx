@@ -1,21 +1,20 @@
 // IMPORTS
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { Footer } from "../../../../components/Footer/Footer";
+import { Header } from "../../../../components/Header/Header";
 import { getAuthorizedFromSessionStorage } from "../../../../utils/sessionStorage/sessionStorage";
 import { Login } from "../../Login/Login";
 import { AddItem } from "./AddItem/AddItem";
 
-interface IAddProps {
-  adminAuthorized: boolean;
-  setAdminAuthorized: React.Dispatch<React.SetStateAction<boolean>>;
-}
+export const Add = () => {
+  const [adminAuthorized, setAdminAuthorized] = useState(false);
 
-export const Add = (props: IAddProps) => {
   // CHECKS IF ADMIN IS AUTHORIZED FROM SESSION STORAGE
 
   useEffect(() => {
-    getAuthorizedFromSessionStorage(props.setAdminAuthorized);
+    getAuthorizedFromSessionStorage(setAdminAuthorized);
   }, []);
 
   // SENDS PARAMETER TYPE TO RENDER CORRECT FORM
@@ -26,11 +25,13 @@ export const Add = (props: IAddProps) => {
 
   return (
     <>
-      {props.adminAuthorized ? (
+      <Header />
+      {adminAuthorized ? (
         <AddItem type={params.type} />
       ) : (
-        <Login setAdminAuthorized={props.setAdminAuthorized} />
+        <Login setAdminAuthorized={setAdminAuthorized} />
       )}
+      <Footer />
     </>
   );
 };

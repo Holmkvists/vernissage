@@ -1,6 +1,5 @@
 // IMPORTS
 
-import { useNavigate } from "react-router-dom";
 import { IShoppingBag } from "../../../../models/IShoppingBag";
 import { removeAllItemsFromLocalStorage } from "../../../../utils/localStorage/localStorage";
 
@@ -11,17 +10,12 @@ interface ICheckoutFormProps {
 }
 
 export const CheckoutForm = (props: ICheckoutFormProps) => {
-  // REDIRECTS TO ORDER CONFIRMATION AND REMOVES ITEMS FROM BAG
-
-  const redirect = useNavigate();
+  // RENDERS TO ORDER CONFIRMATION AND REMOVES ITEMS FROM BAG
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-
     removeAllItemsFromLocalStorage();
-
     props.setOrderPlaced(true);
-    redirect("/order-confirmation");
   };
 
   return (

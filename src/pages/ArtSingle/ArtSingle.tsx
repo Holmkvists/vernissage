@@ -5,6 +5,8 @@ import { useEffect, useState } from "react";
 import { IArt } from "../../models/IArt";
 import { getSingleArt } from "../../api/api";
 import { BackButton } from "../../components/BackButton/BackButton";
+import { Header } from "../../components/Header/Header";
+import { Footer } from "../../components/Footer/Footer";
 
 export const ArtSingle = () => {
   let params = useParams();
@@ -25,6 +27,7 @@ export const ArtSingle = () => {
 
   return (
     <>
+      <Header />
       <BackButton />
       <div id="art-container">
         <h2>
@@ -44,6 +47,7 @@ export const ArtSingle = () => {
           </div>
         )}
       </div>
+      <Footer />
     </>
   );
 };

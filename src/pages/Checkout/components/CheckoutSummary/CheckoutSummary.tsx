@@ -11,11 +11,12 @@ interface ICheckoutSummary {
 
 export const CheckoutSummary = (props: ICheckoutSummary) => {
   let [totalPrice, setTotalPrice] = useState("");
+  let [empty, setEmpty] = useState(false);
 
   // GETS BAG ITEMS AND CALCULATES TOTAL PRICE
 
   useEffect(() => {
-    getItemsFromLocalStorage(props.setShoppingBag, setTotalPrice);
+    getItemsFromLocalStorage(props.setShoppingBag, setTotalPrice, setEmpty);
   }, []);
 
   return (

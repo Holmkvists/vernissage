@@ -8,41 +8,33 @@ import {
   removeItemFromShoppingBag,
 } from "../../utils/localStorage/localStorage";
 
-interface IBagProps {
-  shoppingBag: IShoppingBag[];
-  setShoppingBag: React.Dispatch<React.SetStateAction<IShoppingBag[]>>;
-}
-
-export const Bag = (props: IBagProps) => {
+export const Bag = () => {
+  let [shoppingBag, setShoppingBag] = useState<IShoppingBag[]>([]);
   let [totalPrice, setTotalPrice] = useState("");
-  let [noItems, setNoItems] = useState(false);
+  let [empty, setEmpty] = useState(false);
 
   // GETS BAG ITEMS IF THEY EXIST
 
   useEffect(() => {
-    getItemsFromLocalStorage(props.setShoppingBag, setTotalPrice);
-
-    if (props.shoppingBag.length === 0) {
-      setNoItems(true);
-    }
+    getItemsFromLocalStorage(setShoppingBag, setTotalPrice, setEmpty);
   }, []);
 
   // REMOVES ITEM FROM BAG
 
   const handleClick = (id: number) => {
-    removeItemFromShoppingBag(id, props.setShoppingBag, setTotalPrice);
+    removeItemFromShoppingBag(id, setShoppingBag, setTotalPrice);
   };
 
   return (
     <div id="shopping-bag-container">
-      {noItems ? (
+      {empty ? (
         <div className="empty-bag">
           <p>Nothing in the bag</p>
           <Link to="/shop">Go to shop</Link>
         </div>
       ) : (
         <>
-          {props.shoppingBag.map((product, i) => (
+          {shoppingBag.map((product, i) => (
             <div className="bag-item" key={i}>
               <div className="bag-item-img">
                 <img src={product.imgSrc} alt={product.name} />

@@ -1,31 +1,32 @@
 // IMPORTS
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Login } from "../Login/Login";
 import { Dashboard } from "../Dashboard/Dashboard";
 import { getAuthorizedFromSessionStorage } from "../../../utils/sessionStorage/sessionStorage";
+import { Header } from "../../../components/Header/Header";
+import { Footer } from "../../../components/Footer/Footer";
 
-interface IAuthorizationProps {
-  adminAuthorized: boolean;
-  setAdminAuthorized: React.Dispatch<React.SetStateAction<boolean>>;
-}
+export const Authorization = () => {
+  const [adminAuthorized, setAdminAuthorized] = useState(false);
 
-export const Authorization = (props: IAuthorizationProps) => {
   // CHECKS IF ADMIN IS AUTHORIZED FROM SESSION STORAGE
 
   useEffect(() => {
-    getAuthorizedFromSessionStorage(props.setAdminAuthorized);
+    getAuthorizedFromSessionStorage(setAdminAuthorized);
   }, []);
 
   // RENDERS LOGIN IF ADMIN IS NOT SIGNED IN
 
   return (
     <>
-      {props.adminAuthorized ? (
+      <Header />
+      {adminAuthorized ? (
         <Dashboard />
       ) : (
-        <Login setAdminAuthorized={props.setAdminAuthorized} />
+        <Login setAdminAuthorized={setAdminAuthorized} />
       )}
+      <Footer />
     </>
   );
 };
