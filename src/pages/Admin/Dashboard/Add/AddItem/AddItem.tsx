@@ -1,3 +1,5 @@
+// IMPORTS
+
 import { BackButton } from "../../../../../components/BackButton/BackButton";
 
 interface IAddItem {
@@ -5,7 +7,7 @@ interface IAddItem {
 }
 
 export const AddItem = (props: IAddItem) => {
-  console.log(props.type);
+  // RENDERS FORM BASED ON PARAMETER TYPE
 
   return (
     <>

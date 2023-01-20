@@ -1,3 +1,5 @@
+// IMPORTS
+
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { IShoppingBag } from "../../models/IShoppingBag";
@@ -15,6 +17,8 @@ export const Bag = (props: IBagProps) => {
   let [totalPrice, setTotalPrice] = useState("");
   let [noItems, setNoItems] = useState(false);
 
+  // GETS BAG ITEMS IF THEY EXIST
+
   useEffect(() => {
     getItemsFromLocalStorage(props.setShoppingBag, setTotalPrice);
 
@@ -22,6 +26,8 @@ export const Bag = (props: IBagProps) => {
       setNoItems(true);
     }
   }, []);
+
+  // REMOVES ITEM FROM BAG
 
   const handleClick = (id: number) => {
     removeItemFromShoppingBag(id, props.setShoppingBag, setTotalPrice);
@@ -31,7 +37,7 @@ export const Bag = (props: IBagProps) => {
     <div id="shopping-bag-container">
       {noItems ? (
         <div className="empty-bag">
-          <h3>Nothing in the bag</h3>
+          <p>Nothing in the bag</p>
           <Link to="/shop">Go to shop</Link>
         </div>
       ) : (
@@ -58,7 +64,7 @@ export const Bag = (props: IBagProps) => {
           <div id="bag-checkout-info">
             <p>Total price: ${totalPrice}</p>
             <Link to={"/shop/checkout"}>Go to checkout</Link>
-          </div>{" "}
+          </div>
         </>
       )}
     </div>

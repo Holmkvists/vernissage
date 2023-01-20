@@ -1,4 +1,6 @@
-import { useEffect, useState } from "react";
+// IMPORTS
+
+import { useEffect } from "react";
 import { Login } from "../Login/Login";
 import { Dashboard } from "../Dashboard/Dashboard";
 import { getAuthorizedFromSessionStorage } from "../../../utils/sessionStorage/sessionStorage";
@@ -9,9 +11,13 @@ interface IAuthorizationProps {
 }
 
 export const Authorization = (props: IAuthorizationProps) => {
+  // CHECKS IF ADMIN IS AUTHORIZED FROM SESSION STORAGE
+
   useEffect(() => {
     getAuthorizedFromSessionStorage(props.setAdminAuthorized);
   }, []);
+
+  // RENDERS LOGIN IF ADMIN IS NOT SIGNED IN
 
   return (
     <>

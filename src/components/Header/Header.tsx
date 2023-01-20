@@ -1,3 +1,5 @@
+// IMPORTS
+
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { IShoppingBag } from "../../models/IShoppingBag";
@@ -12,9 +14,13 @@ export const Header = (props: IHeaderProps) => {
   const [menuToggle, setMenuToggle] = useState(false);
   const [bagToggle, setBagToggle] = useState(false);
 
+  // TOGGLES HAMBURGER MENU
+
   const toggleMenu = () => {
     setMenuToggle(!menuToggle);
   };
+
+  // TOGGLES BAG
 
   const toggleBag = () => {
     setBagToggle(!bagToggle);
@@ -23,9 +29,9 @@ export const Header = (props: IHeaderProps) => {
   return (
     <header>
       <div id="logo-container">
-        <a href="/">
+        <Link to={"/"}>
           <img src="/assets/logo/holmkvist-logo.png" alt="Logo" />
-        </a>
+        </Link>
       </div>
       <div className="nav-container">
         <i onClick={toggleBag} className="bi bi-bag bag"></i>

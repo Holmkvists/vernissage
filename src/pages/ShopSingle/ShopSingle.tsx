@@ -26,7 +26,7 @@ export const ShopSingle = () => {
     getSingleProduct(params.id, setProduct);
   }, []);
 
-  // ADDING PRODUCT TO SHOPPING BAG
+  // ADDS PRODUCT TO SHOPPING BAG
 
   let [shoppingBag, setShoppingBag] = useState<IShoppingBag[]>([]);
 

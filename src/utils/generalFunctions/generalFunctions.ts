@@ -1,4 +1,8 @@
+// IMPORTS
+
 import { IShoppingBag } from "../../models/IShoppingBag";
+
+// CALCULATES TOTAL SHOPPING BAG PRICE
 
 export const calculateTotalPrice = (
   shoppingBag: IShoppingBag[],

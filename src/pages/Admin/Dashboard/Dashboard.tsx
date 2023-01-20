@@ -1,3 +1,5 @@
+// IMPORTS
+
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { getArt, getProducts } from "../../../api/api";
@@ -10,6 +12,8 @@ export const Dashboard = () => {
   const [shop, setShop] = useState<IShop[]>([]);
 
   const deleteUrl = "http://localhost:4000/";
+
+  // GETS ITEMS FROM BACKEND
 
   useEffect(() => {
     getArt(setArt);

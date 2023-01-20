@@ -1,3 +1,5 @@
+// IMPORTS
+
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { getAuthorizedFromSessionStorage } from "../../../../utils/sessionStorage/sessionStorage";
@@ -10,11 +12,17 @@ interface IAddProps {
 }
 
 export const Add = (props: IAddProps) => {
+  // CHECKS IF ADMIN IS AUTHORIZED FROM SESSION STORAGE
+
   useEffect(() => {
     getAuthorizedFromSessionStorage(props.setAdminAuthorized);
   }, []);
 
+  // SENDS PARAMETER TYPE TO RENDER CORRECT FORM
+
   let params = useParams();
+
+  // RENDERS LOGIN IF ADMIN IS NOT SIGNED IN
 
   return (
     <>

@@ -1,6 +1,5 @@
-/* IMPORTS */
+// IMPORTS
 
-import { useState } from "react";
 import { IShoppingBag } from "../../models/IShoppingBag";
 
 // COMPONENTS

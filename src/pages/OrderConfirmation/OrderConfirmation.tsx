@@ -1,3 +1,5 @@
+// IMPORTS
+
 import { Home } from "../Home/Home";
 
 interface IOrderConfirmationProps {
@@ -5,14 +7,18 @@ interface IOrderConfirmationProps {
 }
 
 export const OrderConfirmation = (props: IOrderConfirmationProps) => {
-  if (props.orderPlaced) {
-    return (
-      <div id="order-confirmation-container">
-        <h2>Thank you for your order</h2>
-        <span>Check your email for order & delivery details</span>
-      </div>
-    );
-  }
+  // RENDERS ORDER CONFIRMATION IF BOOLEAN IS TRUE
 
-  return <Home />;
+  return (
+    <>
+      {props.orderPlaced ? (
+        <div id="order-confirmation-container">
+          <h2>Thank you for your order</h2>
+          <span>Check your email for order & delivery details</span>
+        </div>
+      ) : (
+        <Home />
+      )}
+    </>
+  );
 };

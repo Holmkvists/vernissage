@@ -1,3 +1,5 @@
+// IMPORTS
+
 import { useEffect, useState } from "react";
 import { IShoppingBag } from "../../../../models/IShoppingBag";
 import { getItemsFromLocalStorage } from "../../../../utils/localStorage/localStorage";
@@ -9,6 +11,8 @@ interface ICheckoutSummary {
 
 export const CheckoutSummary = (props: ICheckoutSummary) => {
   let [totalPrice, setTotalPrice] = useState("");
+
+  // GETS BAG ITEMS AND CALCULATES TOTAL PRICE
 
   useEffect(() => {
     getItemsFromLocalStorage(props.setShoppingBag, setTotalPrice);

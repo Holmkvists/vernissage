@@ -17,6 +17,8 @@ export const ArtSingle = () => {
     altImgSrc: "",
   });
 
+  // GETS SELECTED ARTWORK FROM BACKEND
+
   useEffect(() => {
     getSingleArt(params.id, setArtwork);
   }, []);

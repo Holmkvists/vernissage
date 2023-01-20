@@ -1,4 +1,4 @@
-// IMPORT INTERFACE
+// IMPORT INTERFACES
 
 import { IShoppingBag } from "../../models/IShoppingBag";
 import { calculateTotalPrice } from "../generalFunctions/generalFunctions";

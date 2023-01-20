@@ -1,3 +1,5 @@
+// IMPORTS
+
 import { useState } from "react";
 import { saveAuthorizedToSessionStorage } from "../../../utils/sessionStorage/sessionStorage";
 
@@ -6,12 +8,13 @@ interface ILoginProps {
 }
 
 export const Login = (props: ILoginProps) => {
-  const [incorrect, setIncorrect] = useState("");
   const [password, setPassword] = useState("");
 
   const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     setPassword(e.currentTarget.value);
   };
+
+  // POSTS TO BACKEND AND AUTHORIZES ADMIN IF PASSWORD IS CORRECT
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -26,9 +29,10 @@ export const Login = (props: ILoginProps) => {
       });
 
       if (response.status === 200) {
-        saveAuthorizedToSessionStorage(props.setAdminAuthorized);
+        return saveAuthorizedToSessionStorage(props.setAdminAuthorized);
       }
-      return setIncorrect("Incorrect password");
+
+      return;
     } catch (requestError) {
       console.log(requestError);
     }
@@ -42,9 +46,9 @@ export const Login = (props: ILoginProps) => {
           id="admin-password"
           type="password"
           onChange={(e) => handleInput(e)}
+          required
         />
         <input type="submit" value="Sign in" />
-        {incorrect && <p>{incorrect}</p>}
       </form>
     </div>
   );

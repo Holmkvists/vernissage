@@ -1,4 +1,4 @@
-/* IMPORTS */
+// IMPORTS
 
 // REACT
 
@@ -25,8 +25,6 @@ import { Add } from "./pages/Admin/Dashboard/Add/Add";
 // SCSS
 
 import "./scss/main.scss";
-
-/* IMPORTS */
 
 const App = () => {
   // GLOBAL STATES

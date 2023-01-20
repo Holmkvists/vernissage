@@ -1,7 +1,11 @@
+//  IMPORTS
+
 import { useNavigate } from "react-router-dom";
 
 export const BackButton = () => {
   const redirect = useNavigate();
+
+  // REDIRECTS TO PREVIOUS PAGE
 
   const goBack = () => {
     redirect(-1);
