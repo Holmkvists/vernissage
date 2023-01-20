@@ -30,6 +30,7 @@ export const getItemsFromLocalStorage = (
   if (shoppingBag.length === 0) {
     return emptyState(true);
   }
+
   bagState(shoppingBag);
   return calculateTotalPrice(shoppingBag, priceState);
 };
@@ -39,7 +40,8 @@ export const getItemsFromLocalStorage = (
 export const removeItemFromShoppingBag = (
   id: number,
   bagState: React.Dispatch<React.SetStateAction<IShoppingBag[]>>,
-  priceState: (value: React.SetStateAction<string>) => void
+  priceState: (value: React.SetStateAction<string>) => void,
+  emptyState: React.Dispatch<React.SetStateAction<boolean>>
 ) => {
   const shoppingBag = JSON.parse(localStorage.getItem("shopping-bag") || "[]");
 
@@ -49,6 +51,10 @@ export const removeItemFromShoppingBag = (
     if (item.id === id) {
       shoppingBag.splice(i, 1);
     }
+  }
+
+  if (shoppingBag.length === 0) {
+    emptyState(true);
   }
 
   localStorage.setItem("shopping-bag", JSON.stringify(shoppingBag));

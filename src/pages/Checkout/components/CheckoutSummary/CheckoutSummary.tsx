@@ -7,16 +7,20 @@ import { getItemsFromLocalStorage } from "../../../../utils/localStorage/localSt
 interface ICheckoutSummary {
   shoppingBag: IShoppingBag[];
   setShoppingBag: React.Dispatch<React.SetStateAction<IShoppingBag[]>>;
+  setEmpty: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export const CheckoutSummary = (props: ICheckoutSummary) => {
   let [totalPrice, setTotalPrice] = useState("");
-  let [empty, setEmpty] = useState(false);
 
   // GETS BAG ITEMS AND CALCULATES TOTAL PRICE
 
   useEffect(() => {
-    getItemsFromLocalStorage(props.setShoppingBag, setTotalPrice, setEmpty);
+    getItemsFromLocalStorage(
+      props.setShoppingBag,
+      setTotalPrice,
+      props.setEmpty
+    );
   }, []);
 
   return (

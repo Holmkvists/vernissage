@@ -4,6 +4,23 @@
 
 // STYLING
 
+#checkout-error {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: calc(100vh - 325px);
+
+  p {
+    font-size: large;
+  }
+
+  a {
+    font-size: larger;
+    color: $blue;
+  }
+}
+
 #checkout-container {
   display: flex;
   flex-direction: column;

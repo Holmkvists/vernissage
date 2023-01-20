@@ -2,6 +2,7 @@
 
 import { IShoppingBag } from "../../models/IShoppingBag";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 // COMPONENTS
 
@@ -14,6 +15,20 @@ import { OrderConfirmation } from "./OrderConfirmation/OrderConfirmation";
 export const Checkout = () => {
   const [shoppingBag, setShoppingBag] = useState<IShoppingBag[]>([]);
   const [orderPlaced, setOrderPlaced] = useState(false);
+  let [empty, setEmpty] = useState(false);
+
+  if (empty) {
+    return (
+      <>
+        <Header />
+        <div id="checkout-error">
+          <p>Nothing to checkout</p>
+          <Link to="/shop">Go to shop</Link>
+        </div>
+        <Footer />
+      </>
+    );
+  }
 
   return (
     <>
@@ -25,6 +40,7 @@ export const Checkout = () => {
           <CheckoutSummary
             shoppingBag={shoppingBag}
             setShoppingBag={setShoppingBag}
+            setEmpty={setEmpty}
           />
           <CheckoutForm
             setOrderPlaced={setOrderPlaced}

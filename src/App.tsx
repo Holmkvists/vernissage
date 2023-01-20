@@ -3,11 +3,6 @@
 // REACT
 
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { useState } from "react";
-
-// MODELS
-
-import { IShoppingBag } from "./models/IShoppingBag";
 
 // COMPONENTS
 
@@ -16,7 +11,6 @@ import { Flow } from "./pages/Flow/Flow";
 import { ArtSingle } from "./pages/ArtSingle/ArtSingle";
 import { ShopSingle } from "./pages/ShopSingle/ShopSingle";
 import { Checkout } from "./pages/Checkout/Checkout";
-import { OrderConfirmation } from "./pages/Checkout/OrderConfirmation/OrderConfirmation";
 import { Authorization } from "./pages/Admin/Authorization/Authorization";
 import { Add } from "./pages/Admin/Dashboard/Add/Add";
 

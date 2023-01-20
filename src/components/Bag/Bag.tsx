@@ -22,7 +22,7 @@ export const Bag = () => {
   // REMOVES ITEM FROM BAG
 
   const handleClick = (id: number) => {
-    removeItemFromShoppingBag(id, setShoppingBag, setTotalPrice);
+    removeItemFromShoppingBag(id, setShoppingBag, setTotalPrice, setEmpty);
   };
 
   return (
